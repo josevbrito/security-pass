@@ -10,27 +10,35 @@ class Program
 
         while (true)
         {
-            Console.WriteLine("1. Login");
-            Console.WriteLine("2. Criar novo login");
-            Console.WriteLine("3. Sair");
+            Console.WriteLine("--------------------------------------");
+            Console.WriteLine("\nBoas vindas ao Gerenciador de Senhas\n");
+            Console.WriteLine("--------------------------------------");
+            Console.WriteLine("[1] - Efetuar Login");
+            Console.WriteLine("[2] - Realizar Cadastro");
+            Console.WriteLine("[3] - Sair");
+            Console.WriteLine("--------------------------------------");
+            Console.Write("\nInsira uma opção: ");
             string choice = Console.ReadLine();
 
             if (choice == "1")
             {
-                Console.Write("Digite o nome de usuário: ");
+                Console.Write("Digite o seu nome de usuário: ");
                 string username = Console.ReadLine();
-                Console.Write("Digite a senha: ");
+                Console.Write("Digite a sua senha: ");
                 string password = Console.ReadLine();
 
                 if (userCredentials.ContainsKey(username) && userCredentials[username] == password)
                 {
                     while (true)
                     {
-                        Console.WriteLine("1. Adicionar site");
-                        Console.WriteLine("2. Editar site");
-                        Console.WriteLine("3. Remover site");
-                        Console.WriteLine("4. Visualizar senhas");
-                        Console.WriteLine("5. Voltar");
+                        Console.WriteLine("\n--------------------------------------");
+                        Console.WriteLine("[1] - Adicionar Senha");
+                        Console.WriteLine("[2] - Editar Senha");
+                        Console.WriteLine("[3] - Remover Senha");
+                        Console.WriteLine("[4] - Visualizar senhas");
+                        Console.WriteLine("[5] - Voltar");
+                        Console.WriteLine("--------------------------------------");
+                        Console.Write("\nInsira uma opção: ");
                         string option = Console.ReadLine();
 
                         if (option == "1")
@@ -53,14 +61,14 @@ class Program
                                 string newUsername = Console.ReadLine();
                                 Console.Write("Nova senha: ");
                                 string newPassword = Console.ReadLine();
-  
+
                                 // Atualizar o site com as novas informações
                                 passwordDatabase[siteToEdit] = (newUsername, newPassword);
-                                Console.WriteLine("Site editado com sucesso!");
+                                Console.WriteLine("\n-\n[Site editado com sucesso!]\n");
                             }
                             else
                             {
-                                Console.WriteLine("Site não encontrado.");
+                                Console.WriteLine("\n-\n[Site não encontrado!]\n");
                             }
                         }
                         else if (option == "3")
@@ -73,14 +81,15 @@ class Program
                             }
                             else
                             {
-                                Console.WriteLine("Site não encontrado.");
+                                Console.WriteLine("\n-\n[Site não encontrado!]\n");
                             }
                         }
                         else if (option == "4")
                         {
+                            Console.WriteLine("-\n\nSenhas Cadastradas:");
                             foreach (var entry in passwordDatabase)
                             {
-                                Console.WriteLine($"Site: {entry.Key}, Usuário: {entry.Value.Item1}, Senha: {entry.Value.Item2}");
+                                Console.WriteLine($"# Site: {entry.Key}, Usuário: {entry.Value.Item1}, Senha: {entry.Value.Item2}");
                             }
                         }
                         else if (option == "5")
@@ -91,7 +100,7 @@ class Program
                 }
                 else
                 {
-                    Console.WriteLine("Credenciais inválidas.");
+                    Console.WriteLine("\n-\n[Credenciais Inválidas!]\n\n\n");
                 }
             }
             else if (choice == "2")
