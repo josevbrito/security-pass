@@ -1,9 +1,16 @@
 <Project Sdk="Microsoft.NET.Sdk">
 
+  <!-- Este arquivo define as configurações do projeto, utilizando o SDK fornecido pela Microsoft.NET.Sdk. -->
+
   <PropertyGroup>
+    <!-- Definição do tipo de saída do projeto: Exe (executável) -->
     <OutputType>Exe</OutputType>
+
+    <!-- Especifica o framework de destino para o qual o projeto será compilado -->
     <TargetFramework>netcoreapp6.0</TargetFramework>
-		<StartupObject>Program</StartupObject>
+
+    <!-- Indica o objeto de inicialização (classe principal com o método Main) para a aplicação -->
+    <StartupObject>Program</StartupObject>
   </PropertyGroup>
 
 </Project>
